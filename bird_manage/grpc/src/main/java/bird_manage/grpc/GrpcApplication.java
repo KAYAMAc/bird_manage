@@ -1,13 +1,13 @@
-package com.example.demo;
+package bird_manage.grpc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class GrpcApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(GrpcApplication.class, args);
 	}
 
 }
