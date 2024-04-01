@@ -30,3 +30,29 @@ service GetFoodHistory {
 service GetWaterHistory {
   rpc getWater (WaterRequest) returns (WaterHistory);
 }
+
+message CreateFoodHistoryRequest{
+  string category = 1;
+  float portion = 2;
+  string operator = 3;
+}
+
+message CreateWaterHistoryRequest{
+  string operator = 1;
+}
+
+message CreateWaterHistoryResponse{
+  string mes = 1;
+}
+
+message CreateFoodHistoryResponse{
+  string mes = 1;
+}
+
+service CreateFoodHistory {
+  rpc createFood (CreateFoodHistoryRequest) returns (CreateWaterHistoryResponse);
+}
+
+service CreateWaterHistory {
+  rpc createWater (WaterRequest) returns (WaterHistory);
+}

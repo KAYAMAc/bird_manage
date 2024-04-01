@@ -2,6 +2,8 @@ package com.main.api;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.protobuf.services.ProtoReflectionService;
+
 
 /**
  * @author: guangxush
@@ -13,6 +15,7 @@ public class GRPCServer {
         Server server = ServerBuilder.
                 forPort(port)
                 .addService( new GetFoodHistoryImpl() )
+                .addService(ProtoReflectionService.newInstance())
                 .build().start();
         System.out.println( "grpc server started successfully, port:" + port );
         server.awaitTermination();
