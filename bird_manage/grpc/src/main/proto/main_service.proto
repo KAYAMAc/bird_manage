@@ -54,5 +54,5 @@ service CreateFoodHistory {
 }
 
 service CreateWaterHistory {
-  rpc createWater (WaterRequest) returns (WaterHistory);
+  rpc createWater (CreateWaterHistoryRequest) returns (CreateWaterHistoryResponse);
 }

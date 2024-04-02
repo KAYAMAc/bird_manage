@@ -19,25 +19,7 @@ public class GetWaterHistoryImpl extends GetWaterHistoryGrpc.GetWaterHistoryImpl
     public void getWater(WaterRequest request, StreamObserver<WaterHistory> responseObserver) {
         WaterHistory rpcDateResponse = null;
         Date now=new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("今天是"+"yyyy年MM月dd日 E kk点mm分");
-        String nowTime = simpleDateFormat.format( now );
-        try {
-            rpcDateResponse = WaterHistory
-                    .newBuilder()
-                    .setWater(0, "half")
-                    .build();
-        } catch (Exception e) {
-            responseObserver.onError(e);
-        } finally {
-            responseObserver.onNext( rpcDateResponse );
-        }
-        responseObserver.onCompleted();
-    }
-
-    @Override
-    public void createWater(WaterRequest request, StreamObserver<WaterHistory> responseObserver) {
-        WaterHistory rpcDateResponse = null;
-        Date now=new Date();
+        
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("今天是"+"yyyy年MM月dd日 E kk点mm分");
         String nowTime = simpleDateFormat.format( now );
         try {
