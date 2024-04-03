@@ -4,11 +4,14 @@ import com.main.api.FoodRequest;
 import com.main.api.WaterRequest;
 import com.main.api.FoodHistory;
 import com.main.api.WaterHistory;
+import com.main.entity.waterHistoryTbl;
+import com.main.entity.foodHistoryTbl;
 import com.main.api.CreateWaterHistoryGrpc;
 import com.main.api.CreateWaterHistoryRequest;
 import com.main.api.CreateWaterHistoryResponse;
 import com.main.dao.foodDao;
 import com.main.dao.waterDao;
+
 import io.grpc.stub.StreamObserver;
 
 import java.text.SimpleDateFormat;
@@ -24,12 +27,20 @@ public class CreateWaterHistoryImpl extends CreateWaterHistoryGrpc.CreateWaterHi
     public void createWater(CreateWaterHistoryRequest request, StreamObserver<CreateWaterHistoryResponse> responseObserver) {
         CreateWaterHistoryResponse rpcDateResponse = null;
         Date now=new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("今天是"+"yyyy年MM月dd日 E kk点mm分");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String nowTime = simpleDateFormat.format( now );
+        waterHistoryTbl newRecord = new waterHistoryTbl();
+        newRecord.timeStamp = nowTime;
+        newRecord.operator = request.getOperator();
+        try{
+            waterDao.insertWaterHistory(newRecord);
+        }catch(Exception e){
+            System.out.println("exception happened");
+        }
         try {
             rpcDateResponse = CreateWaterHistoryResponse
                     .newBuilder()
-                    .setWater(0, "half")
+                    .setMes("this is a response")
                     .build();
         } catch (Exception e) {
             responseObserver.onError(e);

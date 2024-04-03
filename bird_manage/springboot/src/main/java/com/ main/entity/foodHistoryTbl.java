@@ -1,7 +1,9 @@
-package com.main.entiry;
+package com.main.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import lombok.Data;
 import javax.persistence.Id;
 import java.sql.Timestamp;
 
@@ -9,7 +11,7 @@ import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name = "food_history")
-public class foodHistory {
+public class foodHistoryTbl {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
