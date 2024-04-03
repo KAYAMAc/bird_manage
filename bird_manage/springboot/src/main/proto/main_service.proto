@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.main.api";
+option java_outer_classname = "RPCDateServiceApi";
+
+package com.main.api;
+
+message FoodRequest{
+  string start_date = 1;
+  string end_date = 2;
+}
+
+message FoodHistory{
+  repeated string food = 1;
+}
+
+message WaterRequest{
+  int32 num = 1;
+}
+
+message WaterHistory{
+  repeated string water = 1;
+}
+
+service GetFoodHistory {
+  rpc getFood (FoodRequest) returns (FoodHistory);
+}
+
+service GetWaterHistory {
+  rpc getWater (WaterRequest) returns (WaterHistory);
+}
