@@ -1,5 +1,6 @@
 package com.main.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,13 +17,13 @@ public class waterHistoryTbl {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long waterHistoryId;
+    public Long waterHistoryId;
 
     @Column(name = "time_stamp")
-    private Timestamp timeStamp;
+    public String timeStamp;
 
     @Column(name = "operator")
-    private String operator;
+    public String operator;
 
     // Getters and setters
 }

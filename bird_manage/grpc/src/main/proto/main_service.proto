@@ -50,7 +50,7 @@ message CreateFoodHistoryResponse{
 }
 
 service CreateFoodHistory {
-  rpc createFood (CreateFoodHistoryRequest) returns (CreateWaterHistoryResponse);
+  rpc createFood (CreateFoodHistoryRequest) returns (CreateFoodHistoryResponse);
 }
 
 service CreateWaterHistory {

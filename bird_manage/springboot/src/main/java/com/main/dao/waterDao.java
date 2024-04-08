@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.main.entity.waterHistoryTbl;
 
 
-import com.main.entity.waterHistory;
-
 public interface waterDao extends JpaRepository<waterHistoryTbl, Long> {
     
     @Query("SELECT u FROM User u WHERE u.start_date >= :startDate AND u.end_date <= :endDate")
