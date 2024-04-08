@@ -1,11 +1,11 @@
-package com.main.api;
+package com.main.bl;
 
 import com.main.api.FoodRequest;
 import com.main.api.WaterRequest;
 import com.main.api.FoodHistory;
 import com.main.api.WaterHistory;
 import io.grpc.stub.StreamObserver;
-
+import com.main.api.GetWaterHistoryGrpc;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -25,7 +25,7 @@ public class GetWaterHistoryImpl extends GetWaterHistoryGrpc.GetWaterHistoryImpl
         try {
             rpcDateResponse = WaterHistory
                     .newBuilder()
-                    .setWater(0, "half")
+                    .addWater( "half" )
                     .build();
         } catch (Exception e) {
             responseObserver.onError(e);

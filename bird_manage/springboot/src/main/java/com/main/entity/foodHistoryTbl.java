@@ -1,7 +1,10 @@
-package com.main.entiry;
+package com.main.entity;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import lombok.Data;
 import javax.persistence.Id;
 import java.sql.Timestamp;
 
@@ -9,23 +12,24 @@ import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name = "food_history")
-public class foodHistory {
+public class foodHistoryTbl {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long foodHistoryId;
+    @Column(name = "food_id")
+    public Long foodHistoryId;
 
     @Column(name = "category")
-    private String category;
+    public String category;
 
     @Column(name = "portion")
-    private Float portion;
+    public Float portion;
 
     @Column(name = "time_stamp")
-    private Timestamp timeStamp;
+    public String timeStamp;
 
     @Column(name = "operator")
-    private String operator;
+    public String operator;
 
     // Getters and setters
 }
