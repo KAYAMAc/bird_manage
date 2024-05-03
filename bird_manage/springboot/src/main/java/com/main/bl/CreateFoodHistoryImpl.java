@@ -1,13 +1,12 @@
-package com.main.bl;
+package main.java.com.main.bl;
 
 import com.main.api.FoodRequest;
 import com.main.api.WaterRequest;
-import com.main.entity.waterHistoryTbl;
-import com.main.entity.foodHistoryTbl;
+import main.java.com.main.entity.foodHistoryTbl;
 import com.main.api.FoodHistory;
 import com.main.api.WaterHistory;
-import com.main.dao.foodDao;
-import com.main.dao.waterDao;
+import main.java.com.main.dao.foodDao;
+import main.java.com.main.dao.waterDao;
 import com.main.api.CreateFoodHistoryRequest;
 import com.main.api.CreateFoodHistoryResponse;
 import com.main.api.CreateFoodHistoryGrpc;
@@ -17,16 +16,22 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import net.devh.boot.grpc.server.service.GrpcService;
+
 
 /**
  * @author: zongcan.li
  * @create: 2024/03/30
  */
-public class CreateFoodHistoryImpl extends CreateFoodHistoryGrpc.CreateFoodHistoryImplBase{
 
-    @Autowired
-    private foodDao foodInterface; 
+
+ @GrpcService
+ public class CreateFoodHistoryImpl extends CreateFoodHistoryGrpc.CreateFoodHistoryImplBase{
     
+    @Autowired
+    private foodDao foodInterface;
+
     @Override
     public void createFood(CreateFoodHistoryRequest request, StreamObserver<CreateFoodHistoryResponse> responseObserver) {
         CreateFoodHistoryResponse rpcResponse = null;

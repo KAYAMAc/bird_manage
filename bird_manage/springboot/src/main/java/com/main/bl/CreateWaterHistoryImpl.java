@@ -1,16 +1,16 @@
-package com.main.bl;
+package main.java.com.main.bl;
 
 import com.main.api.FoodRequest;
 import com.main.api.WaterRequest;
 import com.main.api.FoodHistory;
 import com.main.api.WaterHistory;
-import com.main.entity.waterHistoryTbl;
-import com.main.entity.foodHistoryTbl;
+import main.java.com.main.entity.waterHistoryTbl;
+import main.java.com.main.entity.foodHistoryTbl;
 import com.main.api.CreateWaterHistoryGrpc;
 import com.main.api.CreateWaterHistoryRequest;
 import com.main.api.CreateWaterHistoryResponse;
-import com.main.dao.foodDao;
-import com.main.dao.waterDao;
+import main.java.com.main.dao.foodDao;
+import main.java.com.main.dao.waterDao;
 
 import io.grpc.stub.StreamObserver;
 

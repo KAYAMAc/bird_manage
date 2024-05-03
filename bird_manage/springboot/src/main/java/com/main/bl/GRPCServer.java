@@ -1,20 +1,29 @@
-package com.main.bl;
+/*
+package main.java.com.main.bl;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.protobuf.services.ProtoReflectionService;
 
 import java.lang.reflect.InvocationTargetException;
+import main.java.com.main.dao.*;
+import main.java.com.main.bl.GetFoodHistoryImpl;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 
-import com.main.bl.GetFoodHistoryImpl;
-
-
+ */
 
 /**
  * @author: guangxush
  * @create: 2019/07/07
  */
+/*
+@Service
 public class GRPCServer {
+    
+
     private static final int port = 9998;
     public static void main( String[] args ) throws Exception {
         try {
@@ -34,4 +43,4 @@ public class GRPCServer {
         }
         
     }
-}
+} */

@@ -1,4 +1,4 @@
-package com.main.bl;
+package main.java.com.main.bl;
 
 import com.main.api.FoodRequest;
 import com.main.api.WaterRequest;
