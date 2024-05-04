@@ -1,4 +1,4 @@
-package com.main.entity;
+package main.java.com.main.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,12 +6,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import lombok.Data;
 import javax.persistence.Id;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
+/**
+ * @author: zongcan.li
+ * @create: 2024/04/02
+ */
 
 @Data
 @Entity
-@Table(name = "food_history")
+@Table(name = "food")
 public class foodHistoryTbl {
 
     @Id
@@ -26,7 +30,7 @@ public class foodHistoryTbl {
     public Float portion;
 
     @Column(name = "time_stamp")
-    public String timeStamp;
+    public LocalDateTime timeStamp;
 
     @Column(name = "operator")
     public String operator;

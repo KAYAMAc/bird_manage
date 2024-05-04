@@ -1,48 +1,43 @@
-package com.main.bl;
+package main.java.com.main.bl;
 
-import com.main.api.FoodRequest;
-import com.main.api.WaterRequest;
-import com.main.entity.waterHistoryTbl;
-import com.main.entity.foodHistoryTbl;
-import com.main.api.FoodHistory;
-import com.main.api.WaterHistory;
-import com.main.dao.foodDao;
-import com.main.dao.waterDao;
+import main.java.com.main.entity.foodHistoryTbl;
+import main.java.com.main.dao.foodDao;
 import com.main.api.CreateFoodHistoryRequest;
 import com.main.api.CreateFoodHistoryResponse;
 import com.main.api.CreateFoodHistoryGrpc;
 import io.grpc.stub.StreamObserver;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import net.devh.boot.grpc.server.service.GrpcService;
 
 /**
  * @author: zongcan.li
  * @create: 2024/03/30
  */
-public class CreateFoodHistoryImpl extends CreateFoodHistoryGrpc.CreateFoodHistoryImplBase{
 
-    @Autowired
-    private foodDao foodInterface; 
+
+ @GrpcService
+ public class CreateFoodHistoryImpl extends CreateFoodHistoryGrpc.CreateFoodHistoryImplBase{
+
+    
+    private foodDao fDI;
+
+    public CreateFoodHistoryImpl(foodDao a) {
+        this.fDI = a;
+    }
+    
     
     @Override
     public void createFood(CreateFoodHistoryRequest request, StreamObserver<CreateFoodHistoryResponse> responseObserver) {
         CreateFoodHistoryResponse rpcResponse = null;
-        Date now=new Date();
-        //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("今天是"+"yyyy年MM月dd日 E kk点mm分");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String nowTime = simpleDateFormat.format( now );
+        LocalDateTime localDateTime = LocalDateTime.now();
         foodHistoryTbl newRecord = new foodHistoryTbl();
-        newRecord.timeStamp = nowTime;
+        newRecord.timeStamp = localDateTime;
         newRecord.operator = request.getOperator();
         newRecord.category = request.getCategory();
         newRecord.portion = request.getPortion();
-        if (this.foodInterface == null){
-            System.out.println( "this is null !!!!!!!");
-        }
-        this.foodInterface.save(newRecord);
+        this.fDI.save(newRecord);
         try {
             rpcResponse = CreateFoodHistoryResponse
                     .newBuilder()
