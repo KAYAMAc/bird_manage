@@ -7,12 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
+/**
+ * @author: zongcan.li
+ * @create: 2024/04/02
+ */
 
 @Data
 @Entity
-@Table(name = "water_history")
+@Table(name = "water")
 public class waterHistoryTbl {
 
     @Id
@@ -20,7 +24,7 @@ public class waterHistoryTbl {
     public Long waterHistoryId;
 
     @Column(name = "time_stamp")
-    public String timeStamp;
+    public LocalDateTime timeStamp;
 
     @Column(name = "operator")
     public String operator;

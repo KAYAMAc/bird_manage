@@ -1,4 +1,4 @@
-package bird_manage.grpc;
+/*package bird_manage.grpc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,4 +10,4 @@ public class GrpcApplication {
 		SpringApplication.run(GrpcApplication.class, args);
 	}
 
-}
+}*/
